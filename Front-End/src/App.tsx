@@ -106,14 +106,22 @@ function App() {
                             <img src={image} alt="" id="selectedImage" onLoad={getClassification} hidden />
                             {
                                 (model && imageSelected) ? (
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            {classification}
-                                        </Typography>
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            With {probability}% of confidence
-                                        </Typography>
-                                    </CardContent>
+                                    (classification && probability) ? (
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                {classification}
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary" component="p">
+                                                With {probability}% of confidence
+                                            </Typography>
+                                        </CardContent>
+                                    ) : (
+                                        <CardContent>
+                                            <Typography variant="body2" color="textSecondary" component="p">
+                                                Waiting for the classification...
+                                            </Typography>
+                                        </CardContent>
+                                    )
                                 ) : (
                                     <CardContent>
                                         <Typography variant="body2" color="textSecondary" component="p">
