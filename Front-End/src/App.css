@@ -35,10 +35,6 @@
   margin: 10px;
 }
 
-#prediction {
-  min-height: 60vh;
-}
-
 #upload-image-btn {
   font-family: SIMPLIFICA;
   font-weight: 700;
