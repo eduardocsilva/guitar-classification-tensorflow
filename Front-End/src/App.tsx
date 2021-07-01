@@ -7,14 +7,14 @@ import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typo
 
 const useStyles = makeStyles({
     root: {
-        width: 400,
-        height: 435,
-        maxWidth: "90vw",
-        marginBottom: 30,
+        width: 350,
+        height: 385,
+        maxWidth: "85vw",
+        marginBottom: 50,
         padding: 10
     },
     media: {
-        height: 350
+        minHeight: 300,
     }
 });
 
@@ -91,30 +91,39 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <div id="title">
+                <div id="title" className="fade">
                     <h3>Guitar Classification</h3>
                     <h6>(powered by Tensorflow.js)</h6>
                 </div>
+
                 {
                     imageSelected ? (
-                        <Card id="prediction" className={classes.root}>
-                            <CardMedia
-                                className={classes.media}
-                                image={image}
-                                title="Guitar"
-                            />
-                            <img src={image} alt="" id="selectedImage" onLoad={getClassification} hidden />
-                            {
-                                (model && imageSelected) ? (
-                                    (classification && probability) ? (
-                                        <CardContent>
-                                            <Typography gutterBottom variant="h5" component="h2">
-                                                {classification}
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                With {probability}% of confidence
-                                            </Typography>
-                                        </CardContent>
+                        <div id="prediction" className="fade-faster">
+                            <Card className={classes.root}>
+                                <CardMedia
+                                    className={classes.media}
+                                    image={image}
+                                    title="Guitar"
+                                />
+                                <img src={image} alt="" id="selectedImage" onLoad={getClassification} hidden />
+                                {
+                                    (model && imageSelected) ? (
+                                        (classification && probability) ? (
+                                            <CardContent>
+                                                <Typography className="fade-faster" gutterBottom variant="h5" component="h2">
+                                                    {classification}
+                                                </Typography>
+                                                <Typography className="fade-faster" variant="body2" color="textSecondary" component="p">
+                                                    With {probability}% of confidence
+                                                </Typography>
+                                            </CardContent>
+                                        ) : (
+                                            <CardContent>
+                                                <Typography className="fade-faster" variant="body2" color="textSecondary" component="p">
+                                                    Waiting for the classification...
+                                                </Typography>
+                                            </CardContent>
+                                        )
                                     ) : (
                                         <CardContent>
                                             <Typography variant="body2" color="textSecondary" component="p">
@@ -122,30 +131,26 @@ function App() {
                                             </Typography>
                                         </CardContent>
                                     )
-                                ) : (
-                                    <CardContent>
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            Waiting for the classification...
-                                        </Typography>
-                                    </CardContent>
-                                )
-                            }
-                        </Card>
+                                }
+                            </Card>
+                        </div>
                     ) : null
                 }
-                <Button
-                    id="upload-image-btn"
-                    variant="contained"
-                    component="label"
-                    color="secondary"
-                >
-                    {!imageSelected ? "Upload an image to classify" : "Upload another image"}
-                    <input
-                        type="file"
-                        onChange={changeHandler}
-                        hidden
-                    />
-                </Button>
+                <div id="upload-image-btn" className="fade">
+                    <Button
+                        variant="contained"
+                        component="label"
+                        color="secondary"
+                    >
+                        {!imageSelected ? "Upload an image to classify" : "Upload another image"}
+                        <input
+                            type="file"
+                            onChange={changeHandler}
+                            hidden
+                        />
+                    </Button>
+                </div>
+                <p id="footer" className="fade">{`© ${new Date().getFullYear()} - Eduardo Silva`}</p>
             </header>
         </div>
     );
