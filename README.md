@@ -1,6 +1,6 @@
-# Guitar Classification (powered by TensorFlow)
+# Guitar Model Classification
 
-Guitar Classification project, powered by a Deep Neural Network model, complete with the model training and a front-end, developed in Python/Jupyter and TypeScript/React.js, respectively.
+Guitar Classification project, powered by a Deep Neural Network model, complete with the model training and a front-end, developed in Python/Jupyter/TensorFlow and TypeScript/React.js/TensorFlow.js, respectively.
 
 ## 1. Model training
 
