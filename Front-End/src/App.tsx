@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import * as tf from "@tensorflow/tfjs";
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@material-ui/core"
+import { Button, Card, CardContent, CardMedia, Typography } from "@material-ui/core"
 
 const useStyles = makeStyles({
     root: {
