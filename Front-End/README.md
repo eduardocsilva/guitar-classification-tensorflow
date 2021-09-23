@@ -2,6 +2,6 @@
 
 A React.js front-end application that serves the trained TensorFlow model. 
 
-The application is currently hosted at the following [website]().
+The website is currently deployed [here](https://eduardocsilva.github.io/guitar-classification-tensorflow), so you don't need to run it locally.
 
-To run a local session, run the following command `yarn start` .
+If you want to run a local session, execute the following command `yarn start` .
